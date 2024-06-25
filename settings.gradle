@@ -1,0 +1,11 @@
+rootProject.name = 'basketClientServer'
+include 'BasketClient'
+include 'BasketModel'
+include 'BasketNetworking'
+include 'BasketPersistance'
+include 'BasketServer'
+include 'BasketServices'
+include 'test'
+include 'BasketRest'
+include 'BasketReactClient'
+

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ro.client.gui.BasketController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <HBox>
+        <StackPane>
+            <TableView fx:id="table" >
+                <columns>
+                    <TableColumn text="Id">
+                        <cellValueFactory><PropertyValueFactory property="id" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Nume">
+                        <cellValueFactory><PropertyValueFactory property="nume" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Nr locuri">
+                        <cellValueFactory><PropertyValueFactory property="nrLocuri" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Pret">
+                        <cellValueFactory><PropertyValueFactory property="pret" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+
+            </TableView>
+        </StackPane>
+        <GridPane alignment="CENTER" hgap="10.0" vgap="10.0">
+            <fx:define>
+                <ToggleGroup fx:id="orderGroup"/>
+            </fx:define>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+
+            <Text fill="blue" text="Vanzare bilet" GridPane.columnIndex="0" GridPane.columnSpan="2"
+                  GridPane.rowIndex="0"/>
+            <Label text="Nume client:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField fx:id="clientText" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Numar locuri:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <TextField fx:id="locuriText" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <HBox alignment="BOTTOM_RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.columnSpan="2" spacing="10">
+                <children>
+                    <Button  text="Vanzare" onAction="#vanzareButton"/>
+                    <Button  text="Cautare" onAction="#cautareButton"/>
+                    <Button  text="Refresh" onAction="#refreshButton"/>
+                    <Button  text="Logout" onAction="#logOutButton"/>
+                </children>
+            </HBox>
+
+        </GridPane>
+        </HBox>
+    </children>
+</AnchorPane>

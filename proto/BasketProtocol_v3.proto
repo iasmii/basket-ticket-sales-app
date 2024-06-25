@@ -1,0 +1,45 @@
+syntax="proto3";
+package ro.mpp2024.protocol;
+
+option java_package="ro.network.protobufProtocol";
+option java_outer_classname="BasketProtobuffs";
+
+message Bilet{
+  int32 meci=1;
+  string numeClient=2;
+  int32 nrLocuri=3;
+}
+
+message Meci{
+  string nume=1;
+  int32 nrLocuri=2;
+  float pret=3;
+}
+
+message Persoana{
+  string username=1;
+  string parola=2;
+}
+
+message BasketRequest{
+  enum Type{Unknown=0; Login=1; Logout=2; VindeBilet=3; GetAll=4; GetDisponibile=5;}
+
+  Type type=1;
+
+  oneof payload{
+    Bilet bilet=2;
+    Meci meci=3;
+    Persoana persoana=4;
+  }
+}
+
+message BasketResponse{
+  enum Type{Unknown=0; Ok=1; Error=2; Loggedin=3; Loggedout=4; BiletVandut=5; GetAll=6; GetDisponibile=7;}
+
+  Type type=1;
+
+  string error=2;
+  Persoana persoana=3;
+  Bilet bilet=4;
+  repeated Meci meciuri=5;
+}
